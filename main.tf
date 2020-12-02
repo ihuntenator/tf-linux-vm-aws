@@ -1,12 +1,6 @@
 # create a Linux instance in AWS
 # execute bash script to set up Ansible client user
-provider "aws" {
-        version    = "~> 2.0"
-        access_key = var.access_key 
-        secret_key = var.secret_key 
-        region     = var.region
-}
-# create an instance
+
 resource "aws_instance" "linux_instance" {
   ami             = lookup(var.amis, var.region) 
   subnet_id       = var.subnet 
