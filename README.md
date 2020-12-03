@@ -24,5 +24,5 @@ terraform apply "tf-linux-vm-aws.out"
 
 When finished:
 ```
-terraform destroy "tf-linux-vm-aws.out"
+terraform destroy -var-file=dev.tfvars
 ```
