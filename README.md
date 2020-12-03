@@ -7,11 +7,13 @@ Install the tentacle at same time as builf linux vm
 Have a tfvars file per environment to give access to AWS environment and ssh key for vm.
 
 ### dev.tfvars
+
+```
 access_key = "ACCESS_KEY"
 secret_key = "SECRET_KEY"
 keyName = "keyname"
 keyPath = "/path/to/key"
-
+```
 
 ## terraform run
 ```
