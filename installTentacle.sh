@@ -7,10 +7,8 @@ space="Default"
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-sudo apt-key adv --fetch-keys "https://apt.octopus.com/public.key"
-sudo add-apt-repository "deb https://apt.octopus.com/ stretch main"
-sudo apt-get update
-sudo apt-get install tentacle
+curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
+yum install tentacle
 
 sudo /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --instance "$name"
 sudo /opt/octopus/tentacle/Tentacle new-certificate --if-blank
