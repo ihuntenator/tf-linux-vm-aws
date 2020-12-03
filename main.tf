@@ -31,7 +31,7 @@ resource "aws_instance" "linux_instance" {
   # Login to the ec2-user with the aws key.
   connection {
     type        = "ssh"
-    user        = "dev"
+    user        = "centos"
     password    = ""
     private_key = file(var.keyPath)
     host        = self.public_ip
