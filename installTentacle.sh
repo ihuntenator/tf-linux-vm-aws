@@ -1,7 +1,7 @@
 #!/bin/bash
-serverUrl="https://ianmhunt.octopus.app"
+serverUrl="https://octopus_name.octopus.app"
 serverCommsPort="10933"
-apiKey="API-5GDIUYIDXFRPWSKR574YS3WMG0"
+apiKey="API-KEY"
 name=$HOSTNAME
 space="Default"
 configFilePath="/etc/octopus/default/tentacle-default.config"
