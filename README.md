@@ -1,6 +1,6 @@
 # Terraform deploy for AWS linux instance with tentacle
 
-Install the tentacle at same time as builf linux vm
+Install the tentacle at same time as build linux vm
 
 ## the tfvars file
 
@@ -22,6 +22,15 @@ terraform validate
 terraform plan -var-file=dev.tfvars -out tf-linux-vm-aws.out
 terraform apply "tf-linux-vm-aws.out"
 ```
+
+## terrarform explore
+
+Create terraform dependency graph in DOT:
+```
+terraform graph
+```
+
+## terraform clean up
 
 When finished:
 ```
