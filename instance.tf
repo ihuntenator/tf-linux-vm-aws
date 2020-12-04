@@ -13,23 +13,24 @@ resource "aws_instance" "linux_instance" {
   volume_tags = {
     Name = var.instanceName
   }
+
+  connection {
+    type        = "ssh"
+    user        = "centos"
+    private_key = file(var.keyPath)
+    host        = self.public_ip
+  }
+
   provisioner "file" {
-    source      = "/Users/ianhunt/projects/octopus/tf-linux-vm-aws/installTentacle.sh"
+    source      = "/Users/ianhunt/projects/terraform/tf-linux-vm-aws/installTentacle.sh"
     destination = "/tmp/installTentacle.sh"
   }
+
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/installTentacle.sh",
       "sudo /tmp/installTentacle.sh",
     ]
   }
-  
-  # Login to the ec2-user with the aws key.
-  connection {
-    type        = "ssh"
-    user        = "centos"
-    password    = ""
-    private_key = file(var.keyPath)
-    host        = self.public_ip
-  }
 } 
+

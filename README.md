@@ -18,6 +18,7 @@ keyPath = "/path/to/key"
 ## terraform run
 ```
 terraform init
+terraform validate -var-file=de.tfvars
 terraform plan -var-file=dev.tfvars -out tf-linux-vm-aws.out
 terraform apply "tf-linux-vm-aws.out"
 ```

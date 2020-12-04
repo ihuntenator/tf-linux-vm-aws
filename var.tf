@@ -1,4 +1,3 @@
-# var.tf
 variable "access_key" { }
 variable "secret_key" { }
 variable "keyName" { }
@@ -8,6 +7,7 @@ variable "region" {
 }
 variable "availabilityZone" {
    default = "ap-southeast-2a"
+
 }
 variable "instanceType" {
    default = "t2.micro"
@@ -27,4 +27,3 @@ variable "amis" {
      "ap-southeast-2" = "ami-085265c078d86c75b"
    }
 }
-# end of var.tf
