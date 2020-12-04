@@ -1,6 +1,5 @@
 resource "aws_instance" "linux_instance" {
   ami             = lookup(var.amis, var.region) 
-  count           = 1
   subnet_id       = var.subnet 
   security_groups = var.securityGroups 
   key_name        = var.keyName 
@@ -22,7 +21,7 @@ resource "aws_instance" "linux_instance" {
   }
 
   provisioner "file" {
-    source      = "/Users/ianhunt/projects/terraform/tf-linux-vm-aws/installTentacle.sh"
+    source      = "~/projects/terraform/tf-linux-vm-aws/installTentacle.sh"
     destination = "/tmp/installTentacle.sh"
   }
 
