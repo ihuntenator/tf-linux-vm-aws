@@ -1,7 +1,7 @@
 #!/bin/bash
 serverUrl="https://ihuntenator.octopus.app"
 serverCommsPort="10933"
-apiKey="API-CKWKEC378HHCP6XKUBF8FCCNY8"
+apiKey="API-SFC3GRXDKOLN8P2B31ASFFASOO8"
 name=$HOSTNAME
 space="Default"
 configFilePath="/etc/octopus/default/tentacle-default.config"
@@ -14,5 +14,5 @@ sudo /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" -
 sudo /opt/octopus/tentacle/Tentacle new-certificate --if-blank
 sudo /opt/octopus/tentacle/Tentacle configure --noListen True --reset-trust --app "$applicationPath"
 echo "Registering the worker $name with server $serverUrl"
-sudo /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name"  --comms-style "TentacleActive" --server-comms-port $serverCommsPort --space "$space"
+sudo /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name"  --comms-style "TentacleActive" --server-comms-port $serverCommsPort --space "$space" --workerpool=Default
 sudo /opt/octopus/tentacle/Tentacle service --install --start
