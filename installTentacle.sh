@@ -18,6 +18,6 @@ sudo /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 sudo /opt/octopus/tentacle/Tentacle new-certificate --if-blank
 sudo /opt/octopus/tentacle/Tentacle configure --noListen True --reset-trust --app "$applicationPath"
 sudo /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
-# echo "Registering the worker $name with server $serverUrl"
-# sudo /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name"  --env "$environment"  --comms-style "TentacleActive" --server-comms-port $serverCommsPort --space "$space" --role "$role"
+echo "Registering the worker $name with server $serverUrl"
+sudo /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name"  --env "$environment"  --comms-style "TentacleActive" --server-comms-port $serverCommsPort --space "$space" --role "$role"
 sudo /opt/octopus/tentacle/Tentacle service --install --start
